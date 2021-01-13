@@ -14,7 +14,6 @@ int main() {
     }
   }
   std::vector<int> vec(vecSize);
-  std::vector<int> newVec;
 
   for (int i = 0; i < vec.size(); ++i){
     std::cout << "vector[" << i << "] = ";
@@ -26,17 +25,18 @@ int main() {
   std::cin >> delNumber;
   
   for (int i = 0; i < vec.size(); i++){
-    if (vec[i] != delNumber){
-      newVec.push_back(vec[i]);
+    if (vec[i] == delNumber){
+      vec.erase(vec.begin() + i);
+      i = 0;
     }
   }
   
-  if (newVec.empty()){
+  if (vec.empty()){
     std::cout << "Вектор пуст!\n";
   }
   else{
-    for (int i = 0; i < newVec.size(); ++i){
-      std::cout << newVec[i] << " ";
+    for (int i = 0; i < vec.size(); ++i){
+      std::cout << vec[i] << " ";
     }
   }
 }
